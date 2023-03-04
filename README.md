@@ -1,5 +1,5 @@
 # todo-list-vue
 ## Descripcion
 ## commands
-`` npm i``
-`` npm run serve ``
+``` npm i```
+``` npm run serve ```
