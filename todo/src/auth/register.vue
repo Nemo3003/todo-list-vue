@@ -1,9 +1,17 @@
 <template>
-    <h1>Create account</h1>
-    <p><input type="text" placeholder="Email" v-model="email"></p>
-    <p><input type="text" placeholder="Password" v-model="password"></p>
-    <p><button @click="register">Submit</button></p>
-    <p><button @click="signInWithGoogle">Sign in with Google</button></p>
+     <div class="container p-4 col-xl-4">
+        <h1>Create account</h1>
+        <div class="form-outline mb-4">
+        <p><input type="text" placeholder="Email" v-model="email" class="form-control"></p>
+        </div>
+        <div class="form-outline mb-4">
+        <p><input type="text" placeholder="Password" v-model="password" class="form-control"></p>
+        </div>
+        <p><button @click="register" class="btn btn-secondary">Submit</button></p>
+        <button @click="signInWithGoogle" type="button" class="btn btn-primary btn-floating mx-1">
+         Sign in with Google
+      </button>
+    </div>
 </template>
 
 <script setup>

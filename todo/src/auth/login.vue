@@ -1,10 +1,24 @@
 <template>
-   <h1>Log into account</h1>
-   <p><input type="text" placeholder="Email" v-model="email"></p>
-   <p><input type="text" placeholder="Password" v-model="password"></p>
-   <p v-if="errMsg">{{ errMsg }}</p>
-   <p><button @click="register">Submit</button></p>
-   <p><button @click="signInWithGoogle">Sign in with Google</button></p>
+   <!-- Email input -->
+   <div class="container p-4 col-xl-4">
+      <div class="row justify-content-center">
+ 
+      <h1>Log into account</h1>
+         
+      <div class="form-outline mb-4">
+         <p><input type="text" placeholder="Email" v-model="email" class="form-control"></p>
+      </div>
+      <div class="form-outline mb-4">
+         <p><input type="text" placeholder="Password" v-model="password" class="form-control"></p>
+      </div>
+      <p v-if="errMsg">{{ errMsg }}</p>
+      <p><button @click="register" class="btn btn-secondary">Submit</button></p>
+      <button @click="signInWithGoogle" type="button" class="btn btn-primary btn-floating mx-1">
+         Sign in with Google
+      </button>
+   </div>
+   
+</div>
 </template>
 
 <script setup>
