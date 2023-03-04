@@ -38,53 +38,60 @@
    
    <script>
    export default {
-     name: "TodoApp",
-     props: {
-       msg: String,
-     },
-     data(){
-       return {
-         editedTask: null,
-         task:'Hello ma friend',
-         availableStatus: ['to-do','in-progress', 'finished'],
-         tasks : [{
-           name: 'Alo',
-           status: 'to-do'
-         },
-         {
-           name: 'Alo2',
-           status: 'to-do'
-         }]
-       }
-       },
-       methods: {
-         submitTask(){
-           if(this.task.length === 0) return;
-   
-           //BEGIN Check whether the user wants to edit or create a new task
-           this.editedTask === null ?
-           this.tasks.push({
-             name: this.task,
-             status: 'to-do'
-           })
-           : this.tasks[this.editedTask].name = this.task,this.editedTask = null;
-           // END
-           this.task = '';
-         },
-         deleteTask(index){
-           this.tasks.splice(index, 1);
-         },
-         editTask(index){
-           this.task = this.tasks[index].name;
-           this.editedTask = index;
-         },
-         changeStatus(index){
-           let newIndex = this.availableStatus.indexOf(this.tasks[index].status);
-         if (++newIndex > 2) newIndex = 0;
-         this.tasks[index].status = this.availableStatus[newIndex];
-         }
-     }
-   };
+  name: "TodoApp",
+  props: {
+    msg: String,
+  },
+  data(){
+    return {
+      editedTask: null,
+      task:'Hello ma friend',
+      availableStatus: ['to-do','in-progress', 'finished'],
+      tasks : []
+    }
+  },
+  methods: {
+    submitTask(){
+      if(this.task.length === 0) return;
+
+      //BEGIN Check whether the user wants to edit or create a new task
+      this.editedTask === null ?
+      this.tasks.push({
+        name: this.task,
+        status: 'to-do'
+      })
+      : this.tasks[this.editedTask].name = this.task,this.editedTask = null;
+      // END
+      this.task = '';
+
+      // Save tasks to local storage
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    },
+    deleteTask(index){
+      this.tasks.splice(index, 1);
+      // Save tasks to local storage
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    },
+    editTask(index){
+      this.task = this.tasks[index].name;
+      this.editedTask = index;
+    },
+    changeStatus(index){
+      let newIndex = this.availableStatus.indexOf(this.tasks[index].status);
+      if (++newIndex > 2) newIndex = 0;
+      this.tasks[index].status = this.availableStatus[newIndex];
+
+      // Save tasks to local storage
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    }
+  },
+  mounted() {
+    // Load tasks from local storage
+    if (localStorage.getItem('tasks')) {
+      this.tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+  }
+};
    </script>
    
    <style>
