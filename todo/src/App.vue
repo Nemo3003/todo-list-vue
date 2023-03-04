@@ -1,5 +1,6 @@
 <template>
   <div id="todo">
+
     <todo-app>
       
     </todo-app>
@@ -7,13 +8,13 @@
 </template>
 
 <script>
-import TodoApp from "./components/TodoApp.vue";
+import TodoApp from "./components/navigation.vue";
 
-export default {  
+export default {
   name: "App",
   components: {
-    TodoApp,
-  },
+    TodoApp
+  }
 };
 </script>
 
