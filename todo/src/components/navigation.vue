@@ -1,10 +1,10 @@
 <template>
-    <nav class="navbar text-center  navbar-light bg-light fixed-top navbar-expand-md">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar text-center  navbar-expand-lg navbar-light bg-light fixed-top     ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 mx-auto navbar-nav">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mr-auto mt-2 mt-lg-0 mx-auto">
             <li class="nav-item active">
                 <router-link to="/" class="nav-link ">Home</router-link>
             </li>

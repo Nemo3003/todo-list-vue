@@ -1,4 +1,5 @@
 <template>
+  <div class="container text-center mx-auto justify-content-center mb-4 pb-5">
  <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">About Me</h1>
@@ -7,7 +8,7 @@
 </div>
 
 <!-- Content -->
-<div class="container">
+<div class="container ">
   <div class="row">
     <div class="col-md-8">
       <h2>My Background</h2>
@@ -30,6 +31,9 @@
       </ul>
     </div>
   </div>
+  <br><br>
+</div>
+
 </div>
 </template>
 
@@ -38,5 +42,14 @@
 </script>
 
 <style>
+html {
+  overflow: hidden;
+}
 
+body {
+  width: 100vw;
+  max-height: 100vh;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
 </style>

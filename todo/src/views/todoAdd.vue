@@ -98,4 +98,7 @@
    .pointer {
      cursor: pointer;
    }
+   html{
+    max-height: 100vh;
+   }
    </style>
