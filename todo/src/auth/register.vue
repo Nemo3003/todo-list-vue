@@ -11,7 +11,7 @@
         </div>
         <p><button @click="register" class="btn btn-secondary">Submit</button></p>
         <button @click="signInWithGoogle" type="button" class="btn btn-primary btn-floating mx-1">
-         Sign in with Google
+         Sign up with Google
       </button>
     </div>
 </template>
