@@ -1,15 +1,16 @@
 <template>
-   <!-- Email input -->
+   <!-- Login form -->
    <div class="container p-4 col-xl-4">
       <div class="row justify-content-center">
  
       <h1>Log into account</h1>
-         
       <div class="form-outline mb-4">
-         <p><input type="text" placeholder="Email" v-model="email" class="form-control"></p>
+         <label for="Email">Email</label>
+         <p><input name="Email" type="text" placeholder="Email" v-model="email" class="form-control"></p>
       </div>
       <div class="form-outline mb-4">
-         <p><input type="text" placeholder="Password" v-model="password" class="form-control"></p>
+         <label for="Password">Password</label>
+         <p><input name="Password" type="password" placeholder="Password" v-model="password" class="form-control"></p>
       </div>
       <p v-if="errMsg">{{ errMsg }}</p>
       <p><button @click="register" class="btn btn-secondary">Submit</button></p>
@@ -30,16 +31,18 @@
    const email = ref("");
    const password = ref("");
    const errMsg = ref("")
+
    const register = ()=>{
        signInWithEmailAndPassword(getAuth(), email.value, password.value)
+       // Error handling
        .then((data) =>{
-           console.log("Successfully registered!");
            router.push('/todo')
        })
        .catch((error) =>{
            console.log(error.code);
            switch(error.code) {
             case "auth/invalid-email":
+               //The message that will be shown to the user
                errMsg.value = "Invalid email";
                break;
             case "auth/user-not-found":
@@ -58,7 +61,6 @@
       const provider = new GoogleAuthProvider();
         signInWithPopup(getAuth(), provider)
         .then((result) => {
-            console.log(result.user);
             router.push("/todo")
         })
         .catch((e)=>{

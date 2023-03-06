@@ -5,6 +5,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto mr-auto mt-2 mt-lg-0 mx-auto">
+            <!--Wherever you see a "!isLoggedIn" indicates that that will be shown only if the usuer is logged in-->
             <li class="nav-item active">
                 <router-link to="/" class="nav-link ">Home</router-link>
             </li>
@@ -41,11 +42,13 @@ import { onMounted, ref } from 'vue';
 import { getAuth, onAuthStateChanged, signOut } from '@firebase/auth';
 import router from '@/router';
 
+//By default, the user is not logged in
 const isLoggedIn = ref(false)
 
 let auth;
 onMounted(()=> {
     auth = getAuth();
+    // This prevents the user from having their session expired when they refresh the page
     onAuthStateChanged(auth, (user)=>{
     if(user){isLoggedIn.value = true;}
     else {isLoggedIn.value = false;}

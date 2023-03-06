@@ -126,14 +126,13 @@
    .finished-task {
   text-decoration: line-through;
   color: red;
-}
-.in-progress-task {
-  font-style: italic;
-  color: orange;
-}
-.error-message {
-  color: red;
-  margin-top: 10px;
-}
-
+  }
+  .in-progress-task {
+    font-style: italic;
+    color: orange;
+  }
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
    </style>
